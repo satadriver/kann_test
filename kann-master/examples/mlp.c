@@ -1,5 +1,12 @@
 
-#if 1
+//mse 方差最小算法
+//mlp 输入层无激活函数，损失函数各有优劣
+//池化跟卷积的异同？
+// RNN 相比 Transformer 的最大劣势,无法并行计算
+//现在提到 RNN，通常指的就是 LSTM 或 GRU，原始 RNN 已很少单独使用。
+//Long Short-Term Memory GRU 是 LSTM 的简化版，它将遗忘门和输入门合并为更新门
+//在 RNN/LSTM/GRU 内部，Sigmoid 负责做“开关”， tanh 负责做“内容
+#if 0
 #include "../Getopt-for-Visual-Studio-master/getopt.h"
 #include <stdlib.h>
 //#include <unistd.h>
@@ -66,8 +73,215 @@ int test(void)
 	return 0;
 }
 
+
+
+__int64 test64bit() {
+	return 0x123456789abcdef;
+}
+
+
+
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include <Windows.h>
+
+// 屏幕尺寸
+#define WIDTH 80
+#define HEIGHT 40
+
+// 3D 立方体的 8 个顶点
+typedef struct {
+	float x, y, z;
+} Point3D;
+
+Point3D cube[8] = {
+	{-1, -1, -1}, {1, -1, -1}, {1, 1, -1}, {-1, 1, -1},
+	{-1, -1, 1}, {1, -1, 1}, {1, 1, 1}, {-1, 1, 1}
+};
+
+// 立方体的 12 条边（连接两个顶点的索引）
+int edges[12][2] = {
+	{0,1}, {1,2}, {2,3}, {3,0},  // 背面
+	{4,5}, {5,6}, {6,7}, {7,4},  // 正面
+	{0,4}, {1,5}, {2,6}, {3,7}   // 连接线
+};
+
+// 旋转角度
+float angle = 0;
+
+// 将 3D 点投影到 2D 屏幕
+void project(Point3D p, int* x, int* y) {
+	// 简单的透视投影
+	float distance = 5;
+	float factor = distance / (distance + p.z);
+
+	// 投影到屏幕坐标
+	*x = (int)(p.x * factor * 20 + WIDTH / 2);
+	*y = (int)(-p.y * factor * 10 + HEIGHT / 2);
+}
+
+// 绕 Y 轴旋转
+Point3D rotateY(Point3D p, float angle) {
+	Point3D result;
+	float cosA = cos(angle);
+	float sinA = sin(angle);
+
+	result.x = p.x * cosA - p.z * sinA;
+	result.y = p.y;
+	result.z = p.x * sinA + p.z * cosA;
+
+	return result;
+}
+
+// 绕 X 轴旋转
+Point3D rotateX(Point3D p, float angle) {
+	Point3D result;
+	float cosA = cos(angle);
+	float sinA = sin(angle);
+
+	result.x = p.x;
+	result.y = p.y * cosA - p.z * sinA;
+	result.z = p.y * sinA + p.z * cosA;
+
+	return result;
+}
+
+// 绘制立方体
+void draw_cube(float angleX, float angleY) {
+	char screen[HEIGHT][WIDTH + 1];  // +1 for null terminator
+	float zbuffer[HEIGHT][WIDTH];
+
+	// 清空屏幕和 Z-buffer
+	for (int i = 0; i < HEIGHT; i++) {
+		for (int j = 0; j < WIDTH; j++) {
+			screen[i][j] = ' ';
+			zbuffer[i][j] = -1000;  // 初始化为很小的值
+		}
+		screen[i][WIDTH] = '\0';
+	}
+
+	// 旋转所有顶点
+	Point3D rotated[8];
+	for (int i = 0; i < 8; i++) {
+		rotated[i] = rotateX(cube[i], angleX);
+		rotated[i] = rotateY(rotated[i], angleY);
+	}
+
+	// 计算投影坐标
+	int projX[8], projY[8];
+	for (int i = 0; i < 8; i++) {
+		project(rotated[i], &projX[i], &projY[i]);
+	}
+
+	// 绘制每条边
+	for (int i = 0; i < 12; i++) {
+		int p1 = edges[i][0];
+		int p2 = edges[i][1];
+
+		int x1 = projX[p1];
+		int y1 = projY[p1];
+		int x2 = projX[p2];
+		int y2 = projY[p2];
+
+		// 使用 Bresenham 算法画线
+		int dx = abs(x2 - x1);
+		int dy = -abs(y2 - y1);
+		int sx = x1 < x2 ? 1 : -1;
+		int sy = y1 < y2 ? 1 : -1;
+		int err = dx + dy;
+
+		int x = x1;
+		int y = y1;
+
+		while (1) {
+			// 检查边界
+			if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
+				// 使用简单的 Z 值决定亮暗
+				float z = (rotated[p1].z + rotated[p2].z) / 2;
+				if (z > zbuffer[y][x]) {
+					zbuffer[y][x] = z;
+					// 根据深度选择不同的字符
+					if (z > 2) screen[y][x] = '@';
+					else if (z > 1) screen[y][x] = '#';
+					else if (z > 0) screen[y][x] = '*';
+					else if (z > -1) screen[y][x] = '.';
+					else screen[y][x] = ' ';
+				}
+			}
+
+			if (x == x2 && y == y2) break;
+
+			int e2 = 2 * err;
+			if (e2 >= dy) {
+				err += dy;
+				x += sx;
+			}
+			if (e2 <= dx) {
+				err += dx;
+				y += sy;
+			}
+		}
+	}
+
+	// 绘制屏幕
+	printf("\033[H");  // 移动光标到左上角
+	for (int i = 0; i < HEIGHT; i++) {
+		printf("%s\n", screen[i]);
+	}
+}
+
+int mymytest() {
+	float angleX = 0, angleY = 0;
+
+	// 隐藏光标
+	printf("\033[?25l");
+
+	while (1) {
+		draw_cube(angleX, angleY);
+
+		// 更新旋转角度
+		angleX += 0.03;
+		angleY += 0.05;
+
+		// 控制帧率 (Linux/Unix)
+		Sleep(50);  // 50ms = 20 FPS
+
+		// 如果在 Windows 下，用 Sleep(50)
+	}
+
+	// 恢复光标
+	printf("\033[?25h");
+
+	return 0;
+}
+
+void mytest() {
+	
+	FILE * fp = _wfopen(L"c:\\Users\\liujinguang01\\Desktop\\doc\\..\\test", L"r");
+	mymytest();
+
+
+	int a = 0;
+	int b = 0;
+	a,b = test64bit();
+	printf("%x %x\r\n", a, b);
+
+	HANDLE f = CreateFileA("c:\\Users\\liujinguang01\\Desktop\\doc\\..\\test", GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	//HANDLE f = CreateFileA("c:\\Users\\liujinguang01\\Desktop\\test",GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+
+	if(f == INVALID_HANDLE_VALUE) {
+		fprintf(stderr, "CreateFileA failed: %d\n", GetLastError());
+		return;
+	}
+
+	CloseHandle(f);
+}
+
 int main (int argc, char* argv[])
 {
+	mytest();
+
 	test();
 
 	int max_epoch = 50, mini_size = 64, max_drop_streak = 10, loss_type = KANN_C_CEB;
