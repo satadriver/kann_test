@@ -35,6 +35,8 @@ static int read_int(FILE *fp, uint64_t x[MAX_FIELDS])
 
 static bit_data_t *read_data(const char *fn)
 {
+	char buf[256];
+	GetCurrentDirectoryA(256, buf);
 	bit_data_t *d;
 	FILE *fp;
 	int i, j;
@@ -125,7 +127,7 @@ static void train(kann_t *ann, bit_data_t *d, float lr, int mini_size, int max_e
 
 int main(int argc, char *argv[])
 {
-	int i, c, seed = 11, n_h_layers = 1, n_h_neurons = 64, mini_size = 64, max_epoch = 50, to_apply = 0, norm = 1, n_threads = 1;
+	int i, c, seed = 11, n_h_layers = 1, n_h_neurons = 64, mini_size = 64, max_epoch = 2, to_apply = 0, norm = 1, n_threads = 1;
 	float lr = 0.01f, dropout = 0.2f;
 	kann_t *ann = 0;
 	char *fn_in = 0, *fn_out = 0;
