@@ -127,7 +127,7 @@ static void train(kann_t *ann, bit_data_t *d, float lr, int mini_size, int max_e
 
 int main(int argc, char *argv[])
 {
-	int i, c, seed = 11, n_h_layers = 1, n_h_neurons = 64, mini_size = 64, max_epoch = 2, to_apply = 0, norm = 1, n_threads = 1;
+	int i, c, seed = 11, n_h_layers = 1, n_h_neurons = 64, mini_size = 64, max_epoch = 30, to_apply = 0, norm = 1, n_threads = 1;
 	float lr = 0.01f, dropout = 0.2f;
 	kann_t *ann = 0;
 	char *fn_in = 0, *fn_out = 0;
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	kad_trap_fe();
-	kann_srand(seed);
+	//kann_srand(seed);
 	if (fn_in) ann = kann_load(fn_in);
 
 	if (!to_apply) {
@@ -175,8 +175,12 @@ int main(int argc, char *argv[])
 		int n, i, k, n_in;
 		n_in = kann_dim_in(ann);
 		fp = strcmp(argv[optind], "-")? fopen(argv[optind], "r") : stdin;
+		int num = 1;
 		while ((n = read_int(fp, x)) > 0) {
 			float x1[MAX_FIELDS];
+			if (n < n_in) {
+				break;
+			}
 			assert(n >= n_in);
 			kann_rnn_start(ann);
 			for (k = 0, y = 0; k < 64; ++k) {
@@ -187,7 +191,8 @@ int main(int argc, char *argv[])
 				if (y1[1] > y1[0]) y |= 1ULL << k;
 			}
 			kann_rnn_end(ann);
-			printf("%llu\n", (unsigned long long)y);
+			printf("[%d] x1:%x x2:%x sum:%x y:%x\n", num++,
+				(unsigned int)x[0], (unsigned int)x[1], (unsigned int)(x[0]+x[1]),(unsigned long )y);
 		}
 		fclose(fp);
 	}
