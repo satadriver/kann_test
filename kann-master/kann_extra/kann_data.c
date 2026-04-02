@@ -24,7 +24,7 @@ kann_data_t *kann_data_read(const char *fn)
 	fp = fn && strcmp(fn, "-")? gzopen(fn, "r") : gzdopen(fileno(stdin), "r");
 #else
 	int fp;
-	fp = fn && strcmp(fn, "-")? open(fn, O_RDONLY) : _fileno(stdin);
+	fp = fn && strcmp(fn, "-")? open(fn, O_RDONLY) : fileno(stdin);
 #endif
 	ks = ks_init(fp);
 
@@ -40,7 +40,7 @@ kann_data_t *kann_data_read(const char *fn)
 				d->cname = (char**)malloc(d->n_col * sizeof(char*));
 				for (i = 0, k = st = 0; i <= str.l; ++i) {
 					if (i == str.l || str.s[i] == '\t') {
-						if (k > 0) str.s[i] = 0, d->cname[k-1] = _strdup(&str.s[st]);
+						if (k > 0) str.s[i] = 0, d->cname[k-1] = strdup(&str.s[st]);
 						++k, st = i + 1;
 					}
 				}
@@ -71,7 +71,7 @@ kann_data_t *kann_data_read(const char *fn)
 				char *p;
 				if (k == 0) {
 					str.s[i] = 0;
-					d->rname[d->n_row] = _strdup(&str.s[st]);
+					d->rname[d->n_row] = strdup(&str.s[st]);
 				} else d->x[d->n_row][k-1] = strtod(&str.s[st], &p);
 				++k, st = i + 1;
 			}

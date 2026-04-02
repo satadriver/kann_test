@@ -2,7 +2,7 @@
 #if 0
 #include <unistd.h>
 #include <stdlib.h>
-#include "kann.h"
+#include "../kann.h"
 
 void kad_print_dot(FILE *fp, int n, kad_node_t **v)
 {

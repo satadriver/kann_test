@@ -75,8 +75,7 @@ static inline kad_node_t *kad_finalize_node(kad_node_t *s) /* a helper function 
 	for (i = 0; i < s->n_child; ++i)
 		if (kad_is_back(s->child[i]))
 			break;
-	if (i < s->n_child) 
-		s->flag |= KAD_VAR;
+	if (i < s->n_child) s->flag |= KAD_VAR;
 	return s;
 }
 
@@ -375,15 +374,12 @@ static void kad_mark_back(int n, kad_node_t **v)
 {
 	int i, j;
 	for (i = 0; i < n; ++i) {
-		if (v[i]->n_child == 0) 
-			continue;
+		if (v[i]->n_child == 0) continue;
 		for (j = 0; j < v[i]->n_child; ++j)
 			if (kad_is_back(v[i]->child[j]))
 				break;
-		if (j < v[i]->n_child) 
-			v[i]->flag |= KAD_VAR;
-		else 
-			v[i]->flag &= ~KAD_VAR;
+		if (j < v[i]->n_child) v[i]->flag |= KAD_VAR;
+		else v[i]->flag &= ~KAD_VAR;
 	}
 }
 
@@ -447,8 +443,7 @@ kad_node_t **kad_compile_array(int *n_node, int n_roots, kad_node_t **roots)
 		kad_node_t *p = kv_pop(stack);
 		for (i = 0; i < p->n_child; ++i) {
 			kad_node_t *q = p->child[i];
-			if (q->tmp == 0) 
-				kv_push(kad_node_p, stack, q);
+			if (q->tmp == 0) kv_push(kad_node_p, stack, q);
 			q->tmp += 1<<1;
 		}
 	}
@@ -561,13 +556,8 @@ void kad_eval_marked(int n, kad_node_t **a)
 	int i;
 	kad_propagate_marks(n, a);
 	for (i = 0; i < n; ++i)
-		if (a[i]->n_child && a[i]->tmp > 0) {
-			kad_op_f fv = kad_op_list[a[i]->op];
-			if (fv == 0) {
-				printf("Error: operator %d not implemented\n", a[i]->op);
-			}
+		if (a[i]->n_child && a[i]->tmp > 0)
 			kad_op_list[a[i]->op](a[i], KAD_FORWARD);
-		}
 	for (i = 0; i < n; ++i) a[i]->tmp = 0;
 }
 
@@ -575,8 +565,7 @@ const float *kad_eval_at(int n, kad_node_t **a, int from)
 {
 	int i;
 	if (from < 0 || from >= n) from = n - 1;
-	for (i = 0; i < n; ++i) 
-		a[i]->tmp = (i == from);
+	for (i = 0; i < n; ++i) a[i]->tmp = (i == from);
 	kad_eval_marked(n, a);
 	return a[from]->x;
 }

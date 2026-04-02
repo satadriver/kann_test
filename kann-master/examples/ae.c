@@ -1,12 +1,18 @@
 
 #if 0
+
+#include "../Getopt-for-Visual-Studio-master/getopt.h"
 #include <stdlib.h>
-#include <unistd.h>
+#include <string.h>
+#include <assert.h>
+#include <ctype.h>
+#include "../kann.h"
+
+#include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
 #include <math.h>
-#include "kann.h"
-#include "kann_extra/kann_data.h"
+#include "../kann_extra/kann_data.h"
 
 static kann_t *model_gen(int n_in, int n_hidden, float i_dropout, int ce_multi)
 {

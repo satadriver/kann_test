@@ -1,5 +1,5 @@
 
-#if 1
+#if 0
 #include "../Getopt-for-Visual-Studio-master/getopt.h"
 #include <stdlib.h>
 #include <string.h>

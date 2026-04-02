@@ -164,11 +164,8 @@ int kann_feed_bind(kann_t *a, uint32_t ext_flag, int32_t ext_label, float **x)
 	int i, k;
 	if (x == 0) return 0;
 	for (i = k = 0; i < a->n; ++i)
-		if (kad_is_feed(a->v[i]) && chk_flg(a->v[i]->ext_flag, ext_flag) && chk_lbl(a->v[i]->ext_label, ext_label)) {
-			float* tmpx = x[k];
-			kad_node_t* tmpa = a->v[i];
+		if (kad_is_feed(a->v[i]) && chk_flg(a->v[i]->ext_flag, ext_flag) && chk_lbl(a->v[i]->ext_label, ext_label))
 			a->v[i]->x = x[k++];
-		}
 	return k;
 }
 
@@ -854,8 +851,7 @@ float kann_grad_clip(float thres, int n, float *g)
  *** @@XY: simpler API for network with a single input/output ***
  ****************************************************************/
 
-int kann_train_fnn1b(kann_t *ann, float lr, int mini_size, int max_epoch, int min_epoch, int max_drop_streak, 
-	float frac_val, int n, float **_x, float **_y)
+int kann_train_fnn1b(kann_t *ann, float lr, int mini_size, int max_epoch, int min_epoch, int max_drop_streak, float frac_val, int n, float **_x, float **_y)
 {
 	int i, j, *shuf, n_train, n_val, n_in, n_out, n_var, n_const, drop_streak = 0, min_set = 0;
 	float **x, **y, *x1, *y1, *r, min_val_cost = FLT_MAX, *min_x, *min_c;

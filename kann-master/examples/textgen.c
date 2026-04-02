@@ -1,13 +1,13 @@
 
-#if 0
+#if 1
+#include "../Getopt-for-Visual-Studio-master/getopt.h"
 #include <math.h>
 #include <stdio.h>
 #include <float.h>
 #include <assert.h>
-#include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include "kann.h"
+#include "../kann.h"
 
 #define VERSION "r490"
 
