@@ -216,6 +216,7 @@ void tg_train(kann_t *ann, const tg_data_t *tg, float lr, int ulen, int vlen, in
 	for (epoch = 0; epoch < max_epoch; ++epoch) {
 		double cost = 0.0;
 		int c, j, b, tot = 0, ctot = 0, n_cerr = 0;
+		int truth_count = 0;
 		for (i = 0; i < batch_len; i += mbs * cs * ulen) {
 			for (b = 0; b < mbs; ++b)
 				p[b] = tg->data + (int)((tg->len - ulen * cs - 1) * kad_drand(0)) + 1;
@@ -237,8 +238,8 @@ void tg_train(kann_t *ann, const tg_data_t *tg, float lr, int ulen, int vlen, in
 					p[b] += ulen;
 				}
 				cost += kann_cost(ua, 0, 1) * ulen * mbs;
-				n_cerr += kann_class_error(ua, &b);
-				tot += ce_len * mbs, ctot += b;
+				n_cerr += kann_class_error(ua, &truth_count);
+				tot += ce_len * mbs, ctot += truth_count;
 				if (grad_clip > 0.0f) kann_grad_clip(grad_clip, n_var, ua->g);
 				kann_RMSprop(n_var, lr, 0, 0.9f, ua->g, ua->x, r);
 			}

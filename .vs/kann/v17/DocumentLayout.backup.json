@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "D:\\Project\\kann_test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\textgen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\textgen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\ae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\ae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\kautodiff.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\kautodiff.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\vae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\vae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\textgen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\textgen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\mnist-cnn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\mnist-cnn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\mlp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\mlp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\inspect.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\inspect.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\rnn-bit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\rnn-bit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\kann_extra\\kann_data.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -29,30 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\kann.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\kann.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\vae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\vae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\inspect.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\inspect.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\ae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\ae.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\mlp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\mlp.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\mnist-cnn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\mnist-cnn.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|D:\\Project\\kann_test\\kann-master\\examples\\rnn-bit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{06B2EF0F-BAAC-41B6-AA30-DCE97433291E}|kann.vcxproj|solutionrelative:kann-master\\examples\\rnn-bit.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "kann.h",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\kann.h",
               "RelativeDocumentMoniker": "kann-master\\kann.h",
@@ -79,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "kann_data.h",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\kann_extra\\kann_data.h",
               "RelativeDocumentMoniker": "kann-master\\kann_extra\\kann_data.h",
@@ -92,20 +92,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "textgen.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\textgen.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\textgen.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\examples\\textgen.c",
               "RelativeToolTip": "kann-master\\examples\\textgen.c",
-              "ViewState": "AgIAANwAAAAAAAAAAAAAAOwAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAYwPwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:51.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
               "Title": "rnn-bit.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\rnn-bit.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\rnn-bit.c",
@@ -118,46 +118,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "mnist-cnn.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\mnist-cnn.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\mnist-cnn.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\examples\\mnist-cnn.c",
               "RelativeToolTip": "kann-master\\examples\\mnist-cnn.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:49.78Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "mlp.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\mlp.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\mlp.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\examples\\mlp.c",
               "RelativeToolTip": "kann-master\\examples\\mlp.c",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAAIsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAAAI0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:23.23Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "ae.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\ae.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\ae.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\examples\\ae.c",
               "RelativeToolTip": "kann-master\\examples\\ae.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:42.605Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "vae.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\vae.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\vae.c",
@@ -170,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "kann.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\kann.c",
               "RelativeDocumentMoniker": "kann-master\\kann.c",
@@ -189,14 +189,14 @@
               "RelativeDocumentMoniker": "kann-master\\kautodiff.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\kautodiff.c",
               "RelativeToolTip": "kann-master\\kautodiff.c",
-              "ViewState": "AgIAABUCAAAAAAAAAAAewCMCAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADgCAAAAAAAAAAAewD8CAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:47.621Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "kautodiff.h",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\kautodiff.h",
               "RelativeDocumentMoniker": "kann-master\\kautodiff.h",
@@ -209,20 +209,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "kann_data.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\kann_extra\\kann_data.c",
               "RelativeDocumentMoniker": "kann-master\\kann_extra\\kann_data.c",
               "ToolTip": "D:\\Project\\kann_test\\kann-master\\kann_extra\\kann_data.c",
               "RelativeToolTip": "kann-master\\kann_extra\\kann_data.c",
-              "ViewState": "AgIAADsAAAAAAAAAAAAswEcAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswEsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2026-03-31T03:07:25.609Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "inspect.c",
               "DocumentMoniker": "D:\\Project\\kann_test\\kann-master\\examples\\inspect.c",
               "RelativeDocumentMoniker": "kann-master\\examples\\inspect.c",
