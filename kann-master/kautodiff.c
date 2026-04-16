@@ -786,7 +786,8 @@ int kad_n_pivots(int n_v, kad_node_t **v)
 {
 	int i, n_pivots = 0;
 	for (i = 0; i < n_v; ++i)
-		if (kad_is_pivot(v[i])) ++n_pivots;
+		if (kad_is_pivot(v[i])) 
+			++n_pivots;
 	return n_pivots;
 }
 
