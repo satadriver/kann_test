@@ -743,6 +743,8 @@ static void kad_unroll_helper(int n_v, kad_node_t **v, int i_pivot, kad_node_t *
 	uint8_t *flag;
 	kad_node_t **aux;
 
+	kad_node_t* last = v[n_v-1];
+
 	assert(kad_is_pivot(v[i_pivot]) && t[i_pivot] == 0);
 	t[i_pivot] = kad_dup1(v[i_pivot]);
 	t[i_pivot]->n_child = len;
@@ -750,36 +752,45 @@ static void kad_unroll_helper(int n_v, kad_node_t **v, int i_pivot, kad_node_t *
 
 	flag = (uint8_t*)calloc(n_v, 1);
 	for (i = i_pivot, flag[i] = 16; i >= 0; --i) {
-		if (i < i_pivot && kad_is_pivot(v[i])) continue; /* don't trespass other pivots */
+		if (i < i_pivot && kad_is_pivot(v[i])) 
+			continue; /* don't trespass other pivots */
 		if (flag[i]&16) /* flag 16: nodes to unroll */
 			for (j = 0; j < v[i]->n_child; ++j)
 				flag[v[i]->child[j]->tmp] = 16;
 	}
 	for (i = 0; i < i_pivot; ++i) {
-		if (!(flag[i]&16)) continue;
-		if (kad_is_var(v[i]) || kad_is_const(v[i]) || kad_is_pivot(v[i])) flag[i] |= 1; /* external nodes that should not be duplicated */
-		if (v[i]->pre) flag[v[i]->pre->tmp] |= 2;
+		if (!(flag[i]&16)) 
+			continue;
+		if (kad_is_var(v[i]) || kad_is_const(v[i]) || kad_is_pivot(v[i])) 
+			flag[i] |= 1; /* external nodes that should not be duplicated */
+		if (v[i]->pre) 
+			flag[v[i]->pre->tmp] |= 2;
 	}
 	flag[v[i_pivot]->child[0]->tmp] |= 4;
 	aux = (kad_node_t**)calloc(n_v, sizeof(kad_node_t*));
 	for (l = 0; l < len; ++l) {
 		for (i = 0; i < i_pivot; ++i) {
-			if (!(flag[i]&16) || ((flag[i]&3) && t[i])) continue;
+			if (!(flag[i]&16) || ((flag[i]&3) && t[i])) 
+				continue;
 			t[i] = kad_dup1(v[i]);
 			if (v[i]->n_child)
 				for (j = 0; j < v[i]->n_child; ++j)
 					t[i]->child[j] = t[v[i]->child[j]->tmp];
-			if (flag[i]&4) t[i_pivot]->child[l] = t[i];
-			if (l == 0 && (flag[i]&2)) aux[i] = t[i];
+			if (flag[i]&4) 
+				t[i_pivot]->child[l] = t[i];
+			if (l == 0 && (flag[i]&2)) 
+				aux[i] = t[i];
 			if (v[i]->pre) {
 				t[v[i]->pre->tmp] = t[i];
-				if (l == len - 1) t[i]->pre = aux[v[i]->pre->tmp]; /* this forms a cycle! */
+				if (l == len - 1) 
+					t[i]->pre = aux[v[i]->pre->tmp]; /* this forms a cycle! */
 			}
 			push_nodes(w, t[i]);
 		}
 	}
 	push_nodes(w, t[i_pivot]);
-	free(aux); free(flag);
+	free(aux); 
+	free(flag);
 }
 
 int kad_n_pivots(int n_v, kad_node_t **v)
